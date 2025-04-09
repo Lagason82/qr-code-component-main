@@ -2,7 +2,7 @@
 
 This is a solution to the [QR code component challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/qr-code-component-iux_sIO_H). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
-## Table of contents
+## Table of contents ( I leave this here for my reference ).
 
 - [Overview](#overview)
   - [Screenshot](#screenshot)
@@ -15,89 +15,170 @@ This is a solution to the [QR code component challenge on Frontend Mentor](https
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
+
+I have just learned HTML CSS for about a month, a lot of things still giving me confusion, however only following tutorial on youtube will not take me anywhere, hence I try to challenge myself. bit by bit. hopefully with all the knowledge I gained in the future will bring food to my table. 
+
+please do point out any part that is consider not a normal practice, so I can learn.
 
 ### Screenshot
 
 ![](./screenshot.jpg)
 
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
 - Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
 ## My process
 
+it is really helpful to get a hand on the figma file, I was able to check the necessary details such as font size, letter spacing, etc
+
+1. created a flexbox first -> center the flexbox in the middle of the page
+
 ### Built with
 
-- Semantic HTML5 markup
+- Semantic HTML5 markup ( well I need to remind myself to properly insert these structure in the future.
 - CSS custom properties
 - Flexbox
 - CSS Grid
-- Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
 
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+1. centering the flexbox to the center of the page. did learn it on the lesson before,
+2. once centered, I added class="card" and set to display Grid
+3. added the QR code and paragraph.
 
-To see how you can add code snippets, see below:
+How I structure the HTML
 
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-```css
-.proud-of-this-css {
-  color: papayawhip;
+<body>
+  <div class="container">
+
+    <div class="card">
+      <img class="qr-img" src="/images/image-qr-code.png" alt="QR">
+
+      <P class="header-text">Improve your front-end skills by building projects</P>
+
+      <P class="content-text">Scan the QR code to visit Frontend Mentor and take your coding skills to the next level</P>
+
+    </div>
+      <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="#">Richard Lee</a>.
+      </div>
+  </div>
+</body>
+
+CSS below:
+/* - Mobile: 375px
+- Desktop: 1440px */
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
+
+html {
+    font-size: 62.5%;
 }
-```
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
+body {
+    background-color:var(--slate-300-bdy)
+}
 
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+:root {
+--White: hsl(0, 0%, 100%);
+--slate-300-bdy:hsl(212, 45%, 89%);
+--slate-500-para: hsl(216, 15%, 48%);
+--slate-900-para:hsl(218, 44%, 22%);
+
+/* paragraph font size */
+--para: 1.5rem;
+
+}
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+
+/* body color to set here after this */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 1440px;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.card {
+    background-color:var(--White);
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 320px;
+    align-items: center;
+    justify-items: center;
+    border-radius: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    
+}
+
+.qr-img {
+    width: 28.8rem;
+    height: 28.8rem;
+    border-radius: 2rem;
+    margin: 1.6rem 1.6rem 2.4rem; 
+}
+
+.header-text {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--slate-900-para);
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+    line-height: 120%;
+    padding-bottom: 1.6rem;
+}
+
+.content-text {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--slate-500-para);
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+    letter-spacing: 0.2px;
+    line-height: 140%;
+    padding-bottom: 4rem;
+}
+
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+familiarise with how things work ( how flexbox, grid behave, how positioning work). then I will focusing more on e-commerce front-end build.
 
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+MDN Website is really helping me a lot
 
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
+- Website - I don't have one currently. still learning, only posting on github
+- Frontend Mentor - [@Lagason82](https://www.frontendmentor.io/profile/Lagason82)
 
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
 
 ## Acknowledgments
 
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
+frontendmentor was the first website I tried to do Challenge on, as it is really recommended by lot of people.
 
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+
